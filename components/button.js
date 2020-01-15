@@ -54,7 +54,6 @@ const StyledButton = styled.button`
       color: transparent;
       &:before {
         content: "";
-        opacity: 1;
         position: absolute;
         left: calc(50% - 10px);
         top: calc(50% - 10px);
@@ -63,7 +62,7 @@ const StyledButton = styled.button`
         border-radius: 50%;
         border: 2px solid transparent;
         border-top: 2px solid white;
-        animation: ${spin} 0.5s linear infinite, ${appear} 0.2s ease-in;
+        animation: ${spin} 0.5s linear infinite, ${appear} 0.3s ease-in;
       }
     `}
 `;
