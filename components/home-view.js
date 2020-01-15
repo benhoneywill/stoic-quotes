@@ -7,6 +7,7 @@ import Blockquote from "./blockquote";
 import QuoteForm from "./quote-form";
 
 const Container = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,11 +17,11 @@ const Container = styled.div`
 `;
 
 const HomeView = () => {
-  const { quote, error } = React.useContext(quoteContext);
+  const { quote, error, loading } = React.useContext(quoteContext);
 
   return (
     <Container>
-      {!error && quote ? <Blockquote text={quote.text} author={quote.author} /> : <ErrorMessage />}
+      {!error && quote ? <Blockquote text={quote.text} author={quote.author} animate={loading} /> : <ErrorMessage />}
       <QuoteForm />
     </Container>
   );

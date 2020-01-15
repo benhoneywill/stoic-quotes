@@ -12,6 +12,7 @@ class App extends NextApp {
       <>
         <Head>
           <title>Stoic Quotes</title>
+          <meta name="theme-color" content="#0c0c0c" />
           <meta
             name="description"
             content="Daily Stoic quotes from Marcus Aurelius, Seneca, and Epictetus; making it simple to bring Stoicism into your everyday life."

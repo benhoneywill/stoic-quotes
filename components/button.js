@@ -28,7 +28,6 @@ const appear = keyframes`
 `;
 
 const StyledButton = styled.button`
-  position: relative;
   appearance: none;
   background-color: transparent;
   border-color: 2px solid #ffffff;
@@ -39,12 +38,18 @@ const StyledButton = styled.button`
   padding: 1em 2.5em;
   transition: background-color 0.2s ease;
 
+  ${({ fullWidth }) =>
+    fullWidth &&
+    css`
+      width: 100%;
+    `}
+
   ${({ disabled }) =>
     !disabled &&
     css`
       &:hover {
         cursor: pointer;
-        background-color: rgba(255, 255, 255, 0.2);
+        background-color: rgba(255, 255, 255, 0.1);
       }
     `}
 
@@ -67,9 +72,9 @@ const StyledButton = styled.button`
     `}
 `;
 
-const Button = ({ loading, disabled, children }) => {
+const Button = ({ loading, disabled, fullWidth, children }) => {
   return (
-    <StyledButton disabled={disabled} loading={loading}>
+    <StyledButton fullWidth={fullWidth} disabled={disabled} loading={loading}>
       {children}
     </StyledButton>
   );
@@ -77,12 +82,14 @@ const Button = ({ loading, disabled, children }) => {
 
 Button.defaultProps = {
   disabled: false,
-  loading: false
+  loading: false,
+  fullWidth: false
 };
 
 Button.propTypes = {
   disabled: PropTypes.bool,
   loading: PropTypes.bool,
+  fullWidth: PropTypes.bool,
   children: PropTypes.string.isRequired
 };
 

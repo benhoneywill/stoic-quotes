@@ -2,9 +2,9 @@ import React from "react";
 import { Global, css, keyframes } from "@emotion/core";
 
 const backgroundShift = keyframes`
-  0% { background-position:0% 50%; }
-  50% { background-position:100% 50%; }
-  100% { background-position:0% 50%; }
+  0% { background-position: 100%, 0% 50%; }
+  50% { background-position: 100%, 100% 50%; }
+  100% { background-position: 100%, 0% 50%; }
 `;
 
 const GlobalStyle = () => {
@@ -13,16 +13,18 @@ const GlobalStyle = () => {
       styles={css`
         html {
           line-height: 1.15;
+          background-color: #0c0c0c;
           -webkit-text-size-adjust: 100%;
         }
         body {
           margin: 0;
           padding: 0;
           color: rgba(255, 255, 255, 0.9);
-          background-color: #111111;
-          background: linear-gradient(270deg, #111111, #222222, #333333, #222222, #111111);
-          background-size: 800% 800%;
-          animation: ${backgroundShift} 60s ease infinite;
+          background-color: #0c0c0c;
+          background: radial-gradient(ellipse at center, transparent 0%, transparent 40%, #0c0c0c 80%, #0c0c0c 100%),
+            linear-gradient(270deg, #111111, #2c2c2c, #111111);
+          background-size: 100%, 800% 800%;
+          animation: ${backgroundShift} 20s ease infinite;
         }
         main {
           display: block;
