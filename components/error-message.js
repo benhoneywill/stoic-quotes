@@ -15,7 +15,9 @@ const Text = styled.p`
 const ErrorMessage = () => {
   return (
     <Container>
-      <Text>Sorry, we are having trouble getting any Stoic quotes right now.</Text>
+      <Text>
+        Sorry. We are having trouble getting any Stoic quotes right now, but do not worry, it is out of your control.
+      </Text>
     </Container>
   );
 };

@@ -25,7 +25,7 @@ const fadeOut = keyframes`
 
 const Quote = styled.blockquote`
   max-width: 620px;
-  margin: 0 0 40px 0;
+  margin: 0;
   animation: ${fadeIn} 0.8s ease-in forwards;
   ${({ animate }) =>
     animate &&
@@ -73,7 +73,7 @@ Blockquote.defaultProps = {
 Blockquote.propTypes = {
   text: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
-  animate: PropTypes.string
+  animate: PropTypes.bool
 };
 
 export default Blockquote;

@@ -11,12 +11,19 @@ const GlobalStyle = () => {
   return (
     <Global
       styles={css`
+        *,
+        *:after,
+        *:before {
+          box-sizing: border-box;
+        }
         html {
           line-height: 1.15;
           background-color: #0c0c0c;
           -webkit-text-size-adjust: 100%;
+          height: 100%;
         }
         body {
+          height: 100%;
           margin: 0;
           padding: 0;
           color: rgba(255, 255, 255, 0.9);
@@ -25,6 +32,9 @@ const GlobalStyle = () => {
             linear-gradient(270deg, #111111, #2c2c2c, #111111);
           background-size: 100%, 800% 800%;
           animation: ${backgroundShift} 20s ease infinite;
+        }
+        #__next {
+          height: 100%;
         }
         main {
           display: block;
