@@ -2,13 +2,11 @@ import NextApp from "next/app";
 import Head from "next/head";
 import React from "react";
 
-import { QuoteProvider } from "../contexts/quote";
-import { fetchQuote } from "../helpers/api";
 import GlobalStyle from "../components/global-style";
 
 class App extends NextApp {
   render() {
-    const { quote, error, Component, pageProps } = this.props;
+    const { Component, pageProps } = this.props;
 
     return (
       <>
@@ -20,24 +18,11 @@ class App extends NextApp {
           />
         </Head>
 
-        <QuoteProvider initialQuote={quote} serverError={error}>
-          <GlobalStyle />
-          <Component {...pageProps} />
-        </QuoteProvider>
+        <GlobalStyle />
+        <Component {...pageProps} />
       </>
     );
   }
 }
-
-App.getInitialProps = async ctx => {
-  const appProps = await NextApp.getInitialProps(ctx);
-
-  try {
-    const quote = await fetchQuote();
-    return { quote, error: null, ...appProps };
-  } catch (error) {
-    return { error, quote: null, ...appProps };
-  }
-};
 
 export default App;

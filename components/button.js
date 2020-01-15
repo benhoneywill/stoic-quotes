@@ -31,8 +31,8 @@ const StyledButton = styled.button`
   position: relative;
   appearance: none;
   background-color: transparent;
-  border-color: 2px solid white;
-  color: white;
+  border-color: 2px solid #ffffff;
+  color: #ffffff;
   text-transform: uppercase;
   font-family: sans-serif;
   letter-spacing: 0.1em;
@@ -61,7 +61,7 @@ const StyledButton = styled.button`
         height: 20px;
         border-radius: 50%;
         border: 2px solid transparent;
-        border-top: 2px solid white;
+        border-top: 2px solid #ffffff;
         animation: ${spin} 0.5s linear infinite, ${appear} 0.3s ease-in;
       }
     `}

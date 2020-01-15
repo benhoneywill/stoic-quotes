@@ -1,29 +1,38 @@
 import React from "react";
-import styled from "@emotion/styled";
+import PropTypes from "prop-types";
 
-import { quoteContext } from "../contexts/quote";
-import Blockquote from "../components/blockquote";
-import ErrorMessage from "../components/error-message";
-import QuoteForm from "../components/quote-form";
+import { fetchQuote } from "../helpers/api";
+import { QuoteProvider } from "../contexts/quote";
+import HomeView from "../components/home-view";
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  min-height: calc(100vh - 40px);
-`;
-
-const HomePage = () => {
-  const { quote, error } = React.useContext(quoteContext);
-
+const HomePage = ({ quote, error }) => {
   return (
-    <Container>
-      {!error && quote ? <Blockquote text={quote.text} author={quote.author} /> : <ErrorMessage />}
-      <QuoteForm />
-    </Container>
+    <QuoteProvider initialQuote={quote} serverError={error}>
+      <HomeView />
+    </QuoteProvider>
   );
+};
+
+HomePage.getInitialProps = async () => {
+  try {
+    const quote = await fetchQuote();
+    return { quote, error: null };
+  } catch (error) {
+    return { error, quote: null };
+  }
+};
+
+HomePage.defaultProps = {
+  error: null,
+  quote: null
+};
+
+HomePage.propTypes = {
+  error: PropTypes.any,
+  quote: PropTypes.shape({
+    text: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired
+  })
 };
 
 export default HomePage;

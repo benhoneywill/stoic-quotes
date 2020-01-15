@@ -27,7 +27,9 @@ const Blockquote = ({ author, text }) => {
     <Quote>
       <Text>{text}</Text>
       <Footer>
-        - <Cite>{author}</Cite>
+        <span>
+          - <Cite>{author}</Cite>
+        </span>
       </Footer>
     </Quote>
   );
