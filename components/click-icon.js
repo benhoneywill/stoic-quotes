@@ -43,9 +43,22 @@ const G = styled.g`
   animation: ${flash} 2s infinite ease-in-out;
 `;
 
+const SrOnly = styled.span`
+  border: none;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+`;
+
 const ClickIcon = ({ size, color, animate }) => {
   return (
     <Wrapper>
+      <SrOnly>Click anywhere to get another quote.</SrOnly>
+
       <SVG className="desktop" width={size} height={size} viewBox="0 0 1000 1000" fill="none" animate={animate}>
         <G>
           <path
