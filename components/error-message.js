@@ -6,7 +6,7 @@ const ErrorMessage = () => {
   return (
     <Blockquote
       text="Sorry. We are having trouble getting any Stoic quotes right now. However, do not worry. It is out of your control."
-      author="Ben Honeywill"
+      author="stoic-quotes.com"
     />
   );
 };
