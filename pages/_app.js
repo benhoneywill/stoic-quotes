@@ -9,6 +9,7 @@ class App extends NextApp {
     const { Component, pageProps } = this.props;
 
     const title = "Stoic Quotes | The best quotes from the great Roman Stoics";
+    const imgSrc = "https://stoic-quotes.com/marcus-aurelius.jpg";
     const description = `
       The very best Stoic quotes from the three great Roman Stoics:
       Marcus Aurelius, Seneca, and Epictetus.Presented in bitesize chunks,
@@ -33,8 +34,20 @@ class App extends NextApp {
               content: description
             },
             {
+              property: "og:image",
+              content: imgSrc
+            },
+            {
+              name: "twitter:image",
+              content: imgSrc
+            },
+            {
               property: "og:type",
               content: "website"
+            },
+            {
+              name: "twitter:card",
+              content: "summary_large_image"
             },
             {
               name: "twitter:creator",
