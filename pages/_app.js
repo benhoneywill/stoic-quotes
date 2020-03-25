@@ -9,8 +9,11 @@ class App extends NextApp {
     const { Component, pageProps } = this.props;
 
     const title = "Stoic Quotes | The best quotes from the great Roman Stoics";
-    const description =
-      "The very best Stoic quotes from the three great Roman Stoics: Marcus Aurelius, Seneca, and Epictetus. Presented in bitesize chunks, learn from their wisdom and bring Stoicism into your everyday life.";
+    const description = `
+      The very best Stoic quotes from the three great Roman Stoics:
+      Marcus Aurelius, Seneca, and Epictetus.Presented in bitesize chunks,
+      learn from their wisdom and bring Stoicism into your everyday life.
+    `;
 
     return (
       <>
