@@ -1,8 +1,12 @@
 import NextApp from "next/app";
 import Head from "next/head";
+import Router from "next/router";
 import React from "react";
 
+import { pageView } from "../lib/gtag";
 import GlobalStyle from "../components/global-style";
+
+Router.events.on("routeChangeComplete", url => pageView(url));
 
 class App extends NextApp {
   render() {
@@ -70,7 +74,7 @@ class App extends NextApp {
               content: "#0c0c0c"
             }
           ].map(props => (
-            <meta {...props} />
+            <meta key={props.name || props.property} {...props} />
           ))}
         </Head>
 
