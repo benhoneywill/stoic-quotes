@@ -56,11 +56,11 @@ const Cite = styled.cite`
 const Blockquote = ({ author, text, animate }) => {
   return (
     <Quote animate={animate}>
-      <Text>{text}</Text>
+      <Text onClick={e => e.stopPropagation()}>{text}</Text>
       <Footer>
-        <span>
-          - <Cite>{author}</Cite>
-        </span>
+        <Cite onClick={e => e.stopPropagation()}>
+          - <span>{author}</span>
+        </Cite>
       </Footer>
     </Quote>
   );
