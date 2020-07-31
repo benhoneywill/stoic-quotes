@@ -9,11 +9,18 @@ import ClickIcon from "./click-icon";
 const Container = styled.div`
   position: relative;
   min-height: 100%;
+  width: 100%;
+  color: inherit;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10vw 5vw 10vw 5vw;
+  padding: 10vw 5vw;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 const Hint = styled.div`
@@ -36,8 +43,31 @@ const HomeView = () => {
     setClicked(true);
   };
 
+  const buttonKeyDown = event => {
+    if (event.keyCode === 32) {
+      event.preventDefault();
+    } else if (event.keyCode === 13) {
+      event.preventDefault();
+      getQuote();
+    }
+  };
+
+  const buttonKeyUp = event => {
+    if (event.keyCode === 32) {
+      event.preventDefault();
+      getQuote();
+    }
+  };
+
   return (
-    <Container onClick={getQuote}>
+    <Container
+      tabIndex="0"
+      role="button"
+      aria-label="Get a new random quote"
+      onClick={getQuote}
+      onKeyDown={buttonKeyDown}
+      onKeyUp={buttonKeyUp}
+    >
       {!error && quote ? <Blockquote text={quote.text} author={quote.author} animate={loading} /> : <ErrorMessage />}
       <Hint>
         <ClickIcon color="#ffffff" size={64} animate={clicked} />

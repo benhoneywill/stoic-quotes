@@ -27,6 +27,8 @@ const Quote = styled.blockquote`
   max-width: 620px;
   margin: 0;
   animation: ${fadeIn} 0.8s ease-in forwards;
+  cursor: default;
+
   ${({ animate }) =>
     animate &&
     css`
@@ -46,7 +48,7 @@ const Text = styled.p`
 
 const Footer = styled.footer`
   text-align: right;
-  padding: 30px;
+  padding: 30px 30px 0 30px;
 `;
 
 const Cite = styled.cite`
@@ -55,10 +57,10 @@ const Cite = styled.cite`
 
 const Blockquote = ({ author, text, animate }) => {
   return (
-    <Quote animate={animate}>
-      <Text onClick={e => e.stopPropagation()}>{text}</Text>
+    <Quote animate={animate} onClick={e => e.stopPropagation()}>
+      <Text>{text}</Text>
       <Footer>
-        <Cite onClick={e => e.stopPropagation()}>
+        <Cite>
           - <span>{author}</span>
         </Cite>
       </Footer>
