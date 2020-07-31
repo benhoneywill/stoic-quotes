@@ -26,3 +26,31 @@ GET https://stoic-quotes.com/api/quote
   "author": "Marcus Aurelius"
 }
 ```
+
+#### Get a list of random Stoic quotes
+
+```
+GET https://stoic-quotes.com/api/quotes
+```
+
+Optionally pass in a `num` param to change the number of quotes returned.
+`num` defaults to `10`, and can not be higher than 100.
+
+```
+GET https://stoic-quotes.com/api/quotes?num=10
+```
+
+##### Example JSON response
+
+```json
+[
+  {
+    "text": "All that exists is the seed of what will emerge from it.",
+    "author": "Marcus Aurelius"
+  },
+  {
+    "text": "If it doesn't harm your character, how can it harm your life?",
+    "author": "Marcus Aurelius"
+  }
+]
+```
