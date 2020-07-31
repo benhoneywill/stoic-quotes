@@ -34,7 +34,7 @@ GET https://stoic-quotes.com/api/quotes
 ```
 
 Optionally pass in a `num` param to change the number of quotes returned.
-`num` defaults to `10`, and can not be higher than 100.
+`num` defaults to `10`, and can not be higher than `100`.
 
 ```
 GET https://stoic-quotes.com/api/quotes?num=10
