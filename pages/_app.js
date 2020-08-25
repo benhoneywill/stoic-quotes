@@ -1,12 +1,8 @@
 import NextApp from "next/app";
 import Head from "next/head";
-import Router from "next/router";
 import React from "react";
 
-import { pageView } from "../lib/gtag";
 import GlobalStyle from "../components/global-style";
-
-Router.events.on("routeChangeComplete", url => pageView(url));
 
 class App extends NextApp {
   render() {
@@ -14,7 +10,8 @@ class App extends NextApp {
 
     const title = "Stoic Quotes | The best quotes from the great Roman Stoics";
     const imgSrc = "https://stoic-quotes.com/marcus-aurelius.jpg";
-    const description = "The very best Stoic quotes from the three great Roman Stoics: Marcus Aurelius, Seneca, and Epictetus. Presented in bitesize chunks, learn from their wisdom and bring Stoicism into your everyday life.";
+    const description =
+      "The very best Stoic quotes from the three great Roman Stoics: Marcus Aurelius, Seneca, and Epictetus. Presented in bitesize chunks, learn from their wisdom and bring Stoicism into your everyday life.";
 
     return (
       <>

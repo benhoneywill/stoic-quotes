@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { event } from "../lib/gtag";
 import { fetchQuote } from "../helpers/api";
 
 export const quoteContext = React.createContext({ quote: null });
@@ -19,7 +18,6 @@ export const QuoteProvider = ({ children, initialQuote, serverError }) => {
     try {
       const data = await fetchQuote();
       setQuote(data);
-      event({ action: "fetch_new_quote" });
     } catch (err) {
       setError(err);
     }

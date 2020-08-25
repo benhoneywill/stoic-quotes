@@ -36,26 +36,20 @@ const Hint = styled.div`
 
 const HomeView = () => {
   const { quote, error, loading, fetchNewQuote } = React.useContext(quoteContext);
-  const [clicked, setClicked] = React.useState(false);
-
-  const getQuote = async () => {
-    await fetchNewQuote();
-    setClicked(true);
-  };
 
   const buttonKeyDown = event => {
     if (event.keyCode === 32) {
       event.preventDefault();
     } else if (event.keyCode === 13) {
       event.preventDefault();
-      getQuote();
+      fetchNewQuote();
     }
   };
 
   const buttonKeyUp = event => {
     if (event.keyCode === 32) {
       event.preventDefault();
-      getQuote();
+      fetchNewQuote();
     }
   };
 
@@ -64,13 +58,13 @@ const HomeView = () => {
       tabIndex="0"
       role="button"
       aria-label="Get a new random quote"
-      onClick={getQuote}
+      onClick={fetchNewQuote}
       onKeyDown={buttonKeyDown}
       onKeyUp={buttonKeyUp}
     >
       {!error && quote ? <Blockquote text={quote.text} author={quote.author} animate={loading} /> : <ErrorMessage />}
       <Hint>
-        <ClickIcon color="#ffffff" size={64} animate={clicked} />
+        <ClickIcon color="#ffffff" size={64} />
       </Hint>
     </Container>
   );

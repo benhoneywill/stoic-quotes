@@ -1,16 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "@emotion/styled";
-import { keyframes, css } from "@emotion/core";
+import { keyframes } from "@emotion/core";
 
 const flash = keyframes`
   0% { opacity: 0; }
   50% { opacity: 0.6; }
-  100% { opacity: 0; }
-`;
-
-const fadeOut = keyframes`
-  0% { opacity: 1; }
   100% { opacity: 0; }
 `;
 
@@ -29,24 +24,16 @@ const Wrapper = styled.span`
   }
 `;
 
-const SVG = styled.svg`
-  ${({ animate }) =>
-    animate &&
-    css`
-      animation: ${fadeOut} 0.8s ease-out forwards;
-    `}
-`;
-
 const G = styled.g`
   position: relative;
   opacity: 0.2;
-  animation: ${flash} 2s infinite ease-in-out;
+  animation: ${flash} 3s infinite ease-in-out;
 `;
 
-const ClickIcon = ({ size, color, animate }) => {
+const ClickIcon = ({ size, color }) => {
   return (
     <Wrapper>
-      <SVG className="desktop" width={size} height={size} viewBox="0 0 1000 1000" fill="none" animate={animate}>
+      <svg className="desktop" width={size} height={size} viewBox="0 0 1000 1000" fill="none">
         <G>
           <path
             fill={color}
@@ -67,16 +54,9 @@ const ClickIcon = ({ size, color, animate }) => {
           opacity="0.3"
           d="M608.6,989.9c34.4,0,67.2-6.7,98.5-20.1s58.4-31.5,81.1-54.3c22.7-22.7,40.8-49.8,54.3-81.1 c13.4-31.3,20.1-64.2,20.1-98.5V445.6c0-34.4-6.7-67.2-20.1-98.5S811,288.7,788.2,266c-22.7-22.7-49.8-40.8-81.1-54.3 c-31.3-13.4-64.2-20.1-98.5-20.1h-36.3c-34.4,0-67.2,6.7-98.5,20.1s-58.4,31.5-81.1,54.3c-22.7,22.7-40.8,49.8-54.3,81.1 c-13.4,31.3-20.1,64.2-20.1,98.5V736c0,34.4,6.7,67.2,20.1,98.5s31.5,58.4,54.3,81.1c22.7,22.7,49.8,40.8,81.1,54.3 c31.3,13.4,64.2,20.1,98.5,20.1H608.6z M599.5,518H363.6c-2.4,0-4.5-0.9-6.4-2.7c-1.8-1.8-2.7-3.9-2.7-6.4v-18.1 c0-2.4,0.9-4.5,2.7-6.4c1.8-1.8,3.9-2.7,6.4-2.7h208.7v-245c0-2.4,0.9-4.5,2.7-6.4c1.8-1.8,3.9-2.7,6.4-2.7h18.1 c2.4,0,4.5,0.9,6.4,2.7c1.8,1.8,2.7,3.9,2.7,6.4v272.2c0,2.4-0.9,4.5-2.7,6.4C604.1,517.1,601.9,518,599.5,518z"
         />
-      </SVG>
+      </svg>
 
-      <SVG
-        className="mobile"
-        width={size - 15}
-        height={size - 15}
-        viewBox="0 0 1000 1000"
-        fill="none"
-        animate={animate}
-      >
+      <svg className="mobile" width={size - 15} height={size - 15} viewBox="0 0 1000 1000" fill="none">
         <G>
           <path
             fill={color}
@@ -105,21 +85,19 @@ const ClickIcon = ({ size, color, animate }) => {
           opacity="0.3"
           d="M211.7,653.1l116.7,170.7c21.7,31.4,50.4,57.4,83.8,76c13.1,7.6,21.1,21.6,20.9,36.7v37.4c0,14.5,11.7,26.2,26.2,26.2 c0,0,0,0,0,0h246c14.5,0,26.2-11.7,26.2-26.2v-70.9c0.3-23.9,8.4-47,23.2-65.7c27-34.4,41.8-76.9,42-120.7l0-139.4 c1.4-26.5-18.9-49.2-45.4-50.7c-1.2-0.1-2.5-0.1-3.7-0.1h-1.2c-24.6-1.7-45.9,16.7-47.9,41.3v-40.1c-1.8-24.5-23-42.9-47.5-41.3 l-1.4,0c-27.4,0-49.4,19.1-49.4,42.7l0-38.4c-1-23.5-19.6-42.4-43-44c-29.9-3.1-55.2,17-55.2,42.3l0-201.2 c0-32.2-26.2-58.3-58.4-58.3c-32.2,0-58.2,26.1-58.3,58.3V638l-85-53.3c-19.6-12.3-44-14-65.2-4.6 C204,594.7,194.5,627.9,211.7,653.1z"
         />
-      </SVG>
+      </svg>
     </Wrapper>
   );
 };
 
 ClickIcon.defaultProps = {
   size: 100,
-  color: "#111111",
-  animate: false
+  color: "#111111"
 };
 
 ClickIcon.propTypes = {
   size: PropTypes.number,
-  color: PropTypes.string,
-  animate: PropTypes.bool
+  color: PropTypes.string
 };
 
 export default ClickIcon;
