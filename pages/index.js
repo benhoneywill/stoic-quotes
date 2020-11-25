@@ -13,13 +13,16 @@ const HomePage = ({ quote, error }) => {
   );
 };
 
-HomePage.getInitialProps = async () => {
+export const getStaticProps = async () => {
+  let quote = null;
+  let error = null;
   try {
-    const quote = await fetchQuote();
-    return { quote, error: null };
-  } catch (error) {
-    return { error, quote: null };
+    quote = await fetchQuote();
+  } catch (err) {
+    error = err
   }
+
+  return { props: { quote, error }, revalidate: 10 };
 };
 
 HomePage.defaultProps = {
