@@ -14,7 +14,7 @@ const Wrapper = styled.span`
     display: none;
   }
 
-  @media (max-width: 620px) {
+  @media (pointer: coarse) {
     .mobile {
       display: inline;
     }
