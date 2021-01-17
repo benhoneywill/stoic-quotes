@@ -59,7 +59,7 @@ const Cite = styled.cite`
 
 const Blockquote = ({ author, text, animate }) => {
   return (
-    <Quote animate={animate} onClick={e => e.stopPropagation()}>
+    <Quote animate={animate} onClick={(e) => e.stopPropagation()}>
       <Text>{text}</Text>
       <Footer>
         <Cite>
@@ -71,13 +71,13 @@ const Blockquote = ({ author, text, animate }) => {
 };
 
 Blockquote.defaultProps = {
-  animate: false
+  animate: false,
 };
 
 Blockquote.propTypes = {
   text: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
-  animate: PropTypes.bool
+  animate: PropTypes.bool,
 };
 
 export default Blockquote;

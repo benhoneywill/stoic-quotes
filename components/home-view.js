@@ -17,6 +17,7 @@ const Container = styled.div`
   align-items: center;
   padding: 10vw 5vw;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 
   &:focus {
     outline: none;
