@@ -1,7 +1,18 @@
+import Cors from "cors";
+
 import data from "../../data/quotes.json";
 import { shuffle } from "../../helpers/general";
+import { initMiddleware } from "../../helpers/middleware";
 
-export default (req, res) => {
+const cors = initMiddleware(
+  Cors({
+    methods: ["GET"]
+  })
+);
+
+export default async (req, res) => {
+  await cors(req, res);
+
   const { num = 10 } = req.query;
   const count = parseInt(num, 10);
 

@@ -9,6 +9,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.35",
     "@emotion/styled": "^10.0.27",
+    "cors": "^2.8.5",
     "isomorphic-fetch": "^2.2.1",
     "next": "^10.0.0",
     "prop-types": "^15.7.2",
