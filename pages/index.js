@@ -5,13 +5,11 @@ import { fetchQuote } from "../helpers/api";
 import { QuoteProvider } from "../contexts/quote";
 import HomeView from "../components/home-view";
 
-const HomePage = ({ quote, error }) => {
-  return (
-    <QuoteProvider initialQuote={quote} serverError={error}>
-      <HomeView />
-    </QuoteProvider>
-  );
-};
+const HomePage = ({ quote, error }) => (
+  <QuoteProvider initialQuote={quote} serverError={error}>
+    <HomeView />
+  </QuoteProvider>
+);
 
 export const getStaticProps = async () => {
   let quote = null;
@@ -19,7 +17,7 @@ export const getStaticProps = async () => {
   try {
     quote = await fetchQuote();
   } catch (err) {
-    error = err
+    error = err;
   }
 
   return { props: { quote, error }, revalidate: 10 };
