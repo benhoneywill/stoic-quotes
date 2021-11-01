@@ -57,27 +57,25 @@ const Cite = styled.cite`
   cursor: text;
 `;
 
-const Blockquote = ({ author, text, animate }) => {
-  return (
-    <Quote animate={animate} onClick={(e) => e.stopPropagation()}>
-      <Text>{text}</Text>
-      <Footer>
-        <Cite>
-          - <span>{author}</span>
-        </Cite>
-      </Footer>
-    </Quote>
-  );
-};
+const Blockquote = ({ author, text, animate }) => (
+  <Quote animate={animate} onClick={e => e.stopPropagation()}>
+    <Text>{text}</Text>
+    <Footer>
+      <Cite>
+        - <span>{author}</span>
+      </Cite>
+    </Footer>
+  </Quote>
+);
 
 Blockquote.defaultProps = {
-  animate: false,
+  animate: false
 };
 
 Blockquote.propTypes = {
   text: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
-  animate: PropTypes.bool,
+  animate: PropTypes.bool
 };
 
 export default Blockquote;
