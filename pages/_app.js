@@ -73,8 +73,6 @@ class App extends NextApp {
 
         <GlobalStyle />
         <Component {...pageProps} />
-
-        <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js" />
       </>
     );
   }
