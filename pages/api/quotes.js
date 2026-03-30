@@ -10,7 +10,7 @@ const cors = initMiddleware(
   })
 );
 
-export default async (req, res) => {
+export default async function getQuotes(req, res) {
   await cors(req, res);
 
   const { num = 10 } = req.query;
