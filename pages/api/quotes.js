@@ -1,4 +1,5 @@
 import Cors from "cors";
+import { track } from "@vercel/analytics/server";
 
 import data from "../../data/quotes.json";
 import { shuffle } from "../../helpers/general";
@@ -12,6 +13,8 @@ const cors = initMiddleware(
 
 export default async function getQuotes(req, res) {
   await cors(req, res);
+
+  track("quotes_requested", { count });
 
   const { num = 10 } = req.query;
   const count = parseInt(num, 10);
