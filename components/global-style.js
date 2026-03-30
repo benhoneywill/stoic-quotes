@@ -1,5 +1,5 @@
 import React from "react";
-import { Global, css, keyframes } from "@emotion/core";
+import { Global, css, keyframes } from "@emotion/react";
 
 const backgroundShift = keyframes`
   0% { background-position: 100%, 0% 50%; }

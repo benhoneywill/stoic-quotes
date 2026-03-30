@@ -1,7 +1,7 @@
 import NextApp from "next/app";
 import Head from "next/head";
 import React from "react";
-
+import { Analytics } from "@vercel/analytics/next";
 import GlobalStyle from "../components/global-style";
 
 class App extends NextApp {
@@ -20,59 +20,60 @@ class App extends NextApp {
           {[
             {
               name: "description",
-              content: description
+              content: description,
             },
             {
               property: "og:title",
-              content: title
+              content: title,
             },
             {
               property: "og:description",
-              content: description
+              content: description,
             },
             {
               property: "og:image",
-              content: imgSrc
+              content: imgSrc,
             },
             {
               name: "twitter:image",
-              content: imgSrc
+              content: imgSrc,
             },
             {
               property: "og:type",
-              content: "website"
+              content: "website",
             },
             {
               name: "twitter:card",
-              content: "summary_large_image"
+              content: "summary_large_image",
             },
             {
               name: "twitter:creator",
-              content: "benhoneywill"
+              content: "benhoneywill",
             },
             {
               name: "twitter:title",
-              content: title
+              content: title,
             },
             {
               name: "twitter:description",
-              content: description
+              content: description,
             },
             {
               name: "keywords",
-              content: "Stoic, Stoicism, Marcus, Aurelius, Seneca, Epictetus, Roman, Philosophy, Quotes, Inspirational"
+              content: "Stoic, Stoicism, Marcus, Aurelius, Seneca, Epictetus, Roman, Philosophy, Quotes, Inspirational",
             },
             {
               name: "theme-color",
-              content: "#0c0c0c"
-            }
-          ].map(props => (
+              content: "#0c0c0c",
+            },
+          ].map((props) => (
             <meta key={props.name || props.property} {...props} />
           ))}
         </Head>
 
         <GlobalStyle />
         <Component {...pageProps} />
+        <Analytics />
       </>
     );
   }
